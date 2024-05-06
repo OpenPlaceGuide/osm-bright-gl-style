@@ -818,12 +818,9 @@
       "source": "openmaptiles",
       "source-layer": "landcover",
       "filter": [
-        "all",
-        [
-          "==",
-          "class",
-          "sand"
-        ]
+        "==",
+        "class",
+        "sand"
       ],
       "layout": {
         "visibility": "visible"
@@ -1309,6 +1306,137 @@
       }
     },
     {
+      "id": "tunnel-path-steps-casing",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "filter": [
+        "all",
+        [
+          "==",
+          "$type",
+          "LineString"
+        ],
+        [
+          "==",
+          "brunnel",
+          "tunnel"
+        ],
+        [
+          "==",
+          "class",
+          "path"
+        ],
+        [
+          "==",
+          "subclass",
+          "steps"
+        ]
+      ],
+      "layout": {
+        "line-cap": "butt",
+        "line-join": "round"
+      },
+      "paint": {
+        "line-color": "#cfcdca",
+        "line-opacity": {
+          "stops": [
+            [
+              12,
+              0
+            ],
+            [
+              12.5,
+              1
+            ]
+          ]
+        },
+        "line-width": {
+          "base": 1.2,
+          "stops": [
+            [
+              12,
+              0.5
+            ],
+            [
+              13,
+              1
+            ],
+            [
+              14,
+              2
+            ],
+            [
+              20,
+              9.25
+            ]
+          ]
+        },
+        "line-dasharray": [
+          0.5,
+          0.25
+        ]
+      }
+    },
+    {
+      "id": "tunnel-path-steps",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "filter": [
+        "all",
+        [
+          "==",
+          "$type",
+          "LineString"
+        ],
+        [
+          "==",
+          "brunnel",
+          "tunnel"
+        ],
+        [
+          "==",
+          "class",
+          "path"
+        ],
+        [
+          "==",
+          "subclass",
+          "steps"
+        ]
+      ],
+      "layout": {
+        "line-join": "bevel",
+        "line-cap": "butt"
+      },
+      "paint": {
+        "line-color": "#fff",
+        "line-opacity": 1,
+        "line-width": {
+          "base": 1.2,
+          "stops": [
+            [
+              13.5,
+              0
+            ],
+            [
+              14,
+              1.25
+            ],
+            [
+              20,
+              5.75
+            ]
+          ]
+        },
+        "line-dasharray": [
+          0.5,
+          0.25
+        ]
+      }
+    },
+    {
       "id": "tunnel-path",
       "type": "line",
       "metadata": {
@@ -1332,6 +1460,11 @@
           "==",
           "class",
           "path"
+        ],
+        [
+          "!=",
+          "subclass",
+          "steps"
         ]
       ],
       "paint": {
@@ -1531,7 +1664,7 @@
         [
           "==",
           "class",
-          "minor_road"
+          "minor"
         ]
       ],
       "layout": {
@@ -2120,6 +2253,76 @@
       }
     },
     {
+      "id": "highway-path-steps-casing",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "filter": [
+        "all",
+        [
+          "==",
+          "$type",
+          "LineString"
+        ],
+        [
+          "!in",
+          "brunnel",
+          "bridge",
+          "tunnel"
+        ],
+        [
+          "==",
+          "class",
+          "path"
+        ],
+        [
+          "in",
+          "subclass",
+          "steps"
+        ]
+      ],
+      "layout": {
+        "line-cap": "butt",
+        "line-join": "round"
+      },
+      "paint": {
+        "line-color": "#cfcdca",
+        "line-opacity": {
+          "stops": [
+            [
+              12,
+              0
+            ],
+            [
+              12.5,
+              1
+            ]
+          ]
+        },
+        "line-width": {
+          "base": 1.2,
+          "stops": [
+            [
+              12,
+              0.5
+            ],
+            [
+              13,
+              1
+            ],
+            [
+              14,
+              2
+            ],
+            [
+              20,
+              9.25
+            ]
+          ]
+        }
+      }
+    },
+    {
       "id": "highway-motorway-link-casing",
       "type": "line",
       "metadata": {
@@ -2598,6 +2801,11 @@
           "==",
           "class",
           "path"
+        ],
+        [
+          "!=",
+          "subclass",
+          "steps"
         ]
       ],
       "paint": {
@@ -2619,6 +2827,65 @@
             ]
           ]
         }
+      }
+    },
+    {
+      "id": "highway-path-steps",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "filter": [
+        "all",
+        [
+          "==",
+          "$type",
+          "LineString"
+        ],
+        [
+          "!in",
+          "brunnel",
+          "bridge",
+          "tunnel"
+        ],
+        [
+          "==",
+          "class",
+          "path"
+        ],
+        [
+          "==",
+          "subclass",
+          "steps"
+        ]
+      ],
+      "layout": {
+        "line-join": "bevel",
+        "line-cap": "butt"
+      },
+      "paint": {
+        "line-color": "#fff",
+        "line-opacity": 1,
+        "line-width": {
+          "base": 1.2,
+          "stops": [
+            [
+              13.5,
+              0
+            ],
+            [
+              14,
+              1.25
+            ],
+            [
+              20,
+              5.75
+            ]
+          ]
+        },
+        "line-dasharray": [
+          0.5,
+          0.25
+        ]
       }
     },
     {
@@ -3699,7 +3966,7 @@
         ]
       ],
       "paint": {
-        "line-color": "#f8f4f0",
+        "line-color": "#cfcdca",
         "line-width": {
           "base": 1.2,
           "stops": [
@@ -3713,6 +3980,64 @@
             ]
           ]
         }
+      }
+    },
+    {
+      "id": "bridge-path-steps",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "filter": [
+        "all",
+        [
+          "==",
+          "$type",
+          "LineString"
+        ],
+        [
+          "==",
+          "brunnel",
+          "bridge"
+        ],
+        [
+          "==",
+          "class",
+          "path"
+        ],
+        [
+          "==",
+          "subclass",
+          "steps"
+        ]
+      ],
+      "layout": {
+        "line-join": "round",
+        "line-cap": "butt"
+      },
+      "paint": {
+        "line-color": "#fff",
+        "line-opacity": 1,
+        "line-width": {
+          "base": 1.2,
+          "stops": [
+            [
+              13.5,
+              0
+            ],
+            [
+              14,
+              1.25
+            ],
+            [
+              20,
+              5.75
+            ]
+          ]
+        },
+        "line-dasharray": [
+          0.5,
+          0.25
+        ]
       }
     },
     {
@@ -3739,6 +4064,11 @@
           "==",
           "class",
           "path"
+        ],
+        [
+          "!=",
+          "subclass",
+          "steps"
         ]
       ],
       "paint": {
@@ -4240,6 +4570,7 @@
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "boundary",
+      "minzoom": 2,
       "filter": [
         "all",
         [
@@ -4605,6 +4936,104 @@
       }
     },
     {
+      "id": "road_oneway",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "minzoom": 15,
+      "filter": [
+        "all",
+        [
+          "==",
+          "oneway",
+          1
+        ],
+        [
+          "in",
+          "class",
+          "motorway",
+          "trunk",
+          "primary",
+          "secondary",
+          "tertiary",
+          "minor",
+          "service"
+        ]
+      ],
+      "layout": {
+        "icon-image": "oneway",
+        "icon-padding": 2,
+        "icon-rotate": 90,
+        "icon-rotation-alignment": "map",
+        "icon-size": {
+          "stops": [
+            [
+              15,
+              0.5
+            ],
+            [
+              19,
+              1
+            ]
+          ]
+        },
+        "symbol-placement": "line",
+        "symbol-spacing": 75
+      },
+      "paint": {
+        "icon-opacity": 0.5
+      }
+    },
+    {
+      "id": "road_oneway_opposite",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "minzoom": 15,
+      "filter": [
+        "all",
+        [
+          "==",
+          "oneway",
+          -1
+        ],
+        [
+          "in",
+          "class",
+          "motorway",
+          "trunk",
+          "primary",
+          "secondary",
+          "tertiary",
+          "minor",
+          "service"
+        ]
+      ],
+      "layout": {
+        "icon-image": "oneway",
+        "icon-padding": 2,
+        "icon-rotate": -90,
+        "icon-rotation-alignment": "map",
+        "icon-size": {
+          "stops": [
+            [
+              15,
+              0.5
+            ],
+            [
+              19,
+              1
+            ]
+          ]
+        },
+        "symbol-placement": "line",
+        "symbol-spacing": 75
+      },
+      "paint": {
+        "icon-opacity": 0.5
+      }
+    },
+    {
       "id": "poi-level-3",
       "type": "symbol",
       "source": "openmaptiles",
@@ -4829,104 +5258,6 @@
         "text-halo-blur": 0.5,
         "text-halo-color": "#ffffff",
         "text-halo-width": 1
-      }
-    },
-    {
-      "id": "road_oneway",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "transportation",
-      "minzoom": 15,
-      "filter": [
-        "all",
-        [
-          "==",
-          "oneway",
-          1
-        ],
-        [
-          "in",
-          "class",
-          "motorway",
-          "trunk",
-          "primary",
-          "secondary",
-          "tertiary",
-          "minor",
-          "service"
-        ]
-      ],
-      "layout": {
-        "icon-image": "oneway",
-        "icon-padding": 2,
-        "icon-rotate": 90,
-        "icon-rotation-alignment": "map",
-        "icon-size": {
-          "stops": [
-            [
-              15,
-              0.5
-            ],
-            [
-              19,
-              1
-            ]
-          ]
-        },
-        "symbol-placement": "line",
-        "symbol-spacing": 75
-      },
-      "paint": {
-        "icon-opacity": 0.5
-      }
-    },
-    {
-      "id": "road_oneway_opposite",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "transportation",
-      "minzoom": 15,
-      "filter": [
-        "all",
-        [
-          "==",
-          "oneway",
-          -1
-        ],
-        [
-          "in",
-          "class",
-          "motorway",
-          "trunk",
-          "primary",
-          "secondary",
-          "tertiary",
-          "minor",
-          "service"
-        ]
-      ],
-      "layout": {
-        "icon-image": "oneway",
-        "icon-padding": 2,
-        "icon-rotate": -90,
-        "icon-rotation-alignment": "map",
-        "icon-size": {
-          "stops": [
-            [
-              15,
-              0.5
-            ],
-            [
-              19,
-              1
-            ]
-          ]
-        },
-        "symbol-placement": "line",
-        "symbol-spacing": 75
-      },
-      "paint": {
-        "icon-opacity": 0.5
       }
     },
     {
